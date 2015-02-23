@@ -40,6 +40,7 @@ Plugin 'scrooloose/syntastic'
 
 " SNIPPETS
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " SYNTAX HIGHLIGHT
 Plugin 'justinmk/vim-syntax-extra'
@@ -52,30 +53,31 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'sjl/badwolf'
 Plugin 'morhetz/gruvbox'
 
-" INTERFACE
-Plugin 'terryma/vim-expand-region'
+" FILE FINDER
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Shougo/unite.vim'
+Plugin 'ujihisa/unite-colorscheme'
+Plugin 'mileszs/ack.vim'
+Plugin 'dyng/ctrlsf.vim'
+
+" INTERFACE
 Plugin 'majutsushi/tagbar'
 Plugin 'itchyny/lightline.vim'
 Plugin 'mbbill/undotree'
 Plugin 'mhinz/vim-startify'
+
+" OTHER FEATURES
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'terryma/vim-expand-region'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'ujihisa/unite-colorscheme'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Yggdroot/indentLine'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'Shougo/vimshell.vim'
-Plugin 'Conque-Shell'
-Plugin 'edkolev/promptline.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'dyng/ctrlsf.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -117,7 +119,6 @@ set smartcase
 
 set magic
 
-set matchpairs+=<:>
 set showmatch
 
 set linebreak
@@ -126,27 +127,44 @@ set backspace=eol,start,indent
 set history=1000
 set nobackup
 
-"set lazyredraw
+set lazyredraw
 set nowrap
 set title
 set laststatus=2
 set number
 set ruler
 set wildmenu
+set scrolloff=4
 "set mouse=a
-set list
 set listchars=tab:\¦\ 
+
+set list
+set completeopt-=preview
 
 set undodir=~/.vim/undodir
 set undofile
 set undolevels=1000  " maximum number of changes that can be undone
 set undoreload=10000  " maximum number lines to save for undo on a buffer reload
 
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 func! Sts( )
     let st = expand("<cword>")
     exe "sts ".st
 endfunc
 nnoremap <leader>st :call Sts( )<cr>
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger = "<c-j>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit = "vertical"
 
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_semantic_triggers =  {
@@ -173,7 +191,7 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-let g:solarized_termcolors=256
+let g:solarized_termcolors = 256
 let g:rehash256 = 1
 let g:molokai_original = 1
 set background=dark

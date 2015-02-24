@@ -135,10 +135,10 @@ set number
 set ruler
 set wildmenu
 set scrolloff=4
-"set mouse=a
-set listchars=tab:\¦\ 
+set mouse=a
+set list lcs=tab:\¦\ 
+"set listchars=tab:→→,extends:>,precedes:<
 
-set list
 set completeopt-=preview
 
 set undodir=~/.vim/undodir
@@ -157,6 +157,9 @@ func! Sts( )
     exe "sts ".st
 endfunc
 nnoremap <leader>st :call Sts( )<cr>
+
+map <leader>t :TagbarToggle<cr>
+map <leader>n <plug>NERDTreeTabsToggle<cr>
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger = "<c-j>"
@@ -185,6 +188,8 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:nerdtree_tabs_open_on_console_startup = 1
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound

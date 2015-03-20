@@ -73,13 +73,13 @@ Plugin 'fholgado/minibufexpl.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-expand-region'
-"Plugin 'myusuf3/numbers.vim'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'Yggdroot/indentLine'
+"Plugin 'myusuf3/numbers.vim'
+"Plugin 'Yggdroot/indentLine'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -139,8 +139,6 @@ set ruler
 set wildmenu
 set scrolloff=4
 set mouse=a
-set list lcs=tab:\¦\ 
-"set listchars=tab:→→,extends:>,precedes:<
 
 set completeopt-=preview
 
@@ -161,6 +159,8 @@ func! Sts( )
 endfunc
 nnoremap <leader>st :call Sts( )<cr>
 
+map <leader>f :FixWhitespace<cr>
+map <leader>u :UndotreeToggle<cr>
 map <leader>t :TagbarToggle<cr>
 map <leader>n <plug>NERDTreeTabsToggle<cr>
 

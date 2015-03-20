@@ -33,10 +33,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'a.vim'
 
 " AUTO COMPLETION
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 " SYNTAX CHECK
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 
 " SNIPPETS
 Plugin 'SirVer/ultisnips'
@@ -67,11 +67,13 @@ Plugin 'majutsushi/tagbar'
 Plugin 'itchyny/lightline.vim'
 Plugin 'mbbill/undotree'
 Plugin 'mhinz/vim-startify'
+Plugin 'fholgado/minibufexpl.vim'
 
 " OTHER FEATURES
+Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-expand-region'
-Plugin 'myusuf3/numbers.vim'
+"Plugin 'myusuf3/numbers.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'kien/rainbow_parentheses.vim'
@@ -119,6 +121,7 @@ set smartcase
 
 set magic
 
+set showcmd
 set showmatch
 
 set linebreak

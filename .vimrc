@@ -1,103 +1,77 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+call plug#begin('~/.vim/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" Make sure you use single quotes
+Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/vim-easy-align'
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
+" PlugIn outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
-" plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
-
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-"Plugin 'user/L9', {'name': 'newL9'}
+Plug 'L9'
 
 " INTEGRATION
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " C/C++ NAVIGATION
-Plugin 'a.vim'
+Plug 'a.vim'
 
 " AUTO COMPLETION
-"Plugin 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 
 " SYNTAX CHECK
-"Plugin 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 
 " SNIPPETS
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " SYNTAX HIGHLIGHT
-Plugin 'justinmk/vim-syntax-extra'
+Plug 'justinmk/vim-syntax-extra'
 
 " COLOR SCHEME
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tomasr/molokai'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'sjl/badwolf'
-Plugin 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
+Plug 'nanotech/jellybeans.vim'
+Plug 'chriskempson/base16-vim'
+Plug 'sjl/badwolf'
+Plug 'morhetz/gruvbox'
 
 " FILE FINDER
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Shougo/unite.vim'
-Plugin 'ujihisa/unite-colorscheme'
-Plugin 'mileszs/ack.vim'
-Plugin 'dyng/ctrlsf.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'kien/ctrlp.vim'
+Plug 'Shougo/unite.vim'
+Plug 'ujihisa/unite-colorscheme'
+Plug 'mileszs/ack.vim'
+Plug 'dyng/ctrlsf.vim'
 
 " INTERFACE
-Plugin 'majutsushi/tagbar'
-Plugin 'itchyny/lightline.vim'
-Plugin 'mbbill/undotree'
-Plugin 'mhinz/vim-startify'
-Plugin 'fholgado/minibufexpl.vim'
+Plug 'majutsushi/tagbar'
+Plug 'itchyny/lightline.vim'
+Plug 'mbbill/undotree'
+Plug 'mhinz/vim-startify'
+Plug 'fholgado/minibufexpl.vim'
 
 " OTHER FEATURES
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'terryma/vim-expand-region'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'bronson/vim-trailing-whitespace'
-"Plugin 'myusuf3/numbers.vim'
-"Plugin 'Yggdroot/indentLine'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'scrooloose/nerdcommenter'
+Plug 'terryma/vim-expand-region'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'bronson/vim-trailing-whitespace'
+"Plug 'myusuf3/numbers.vim'
+"Plug 'Yggdroot/indentLine'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call plug#end()
+
+set nocompatible
 syntax on
-filetype indent on
-
+filetype plugin indent on
 let mapleader = ","
 set tags+=tags;
 
@@ -199,9 +173,15 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+
 let g:solarized_termcolors = 256
 let g:rehash256 = 1
 let g:molokai_original = 1
+
 set background=dark
 colorscheme molokai
 

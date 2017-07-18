@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 
 " Make sure you use single quotes
 Plug 'junegunn/seoul256.vim'
@@ -10,13 +10,13 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " PlugIn outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
-Plug 'L9'
+Plug 'vim-scripts/L9'
 
 " INTEGRATION
 Plug 'tpope/vim-fugitive'
 
 " C/C++ NAVIGATION
-Plug 'a.vim'
+Plug 'vim-scripts/a.vim'
 
 " AUTO COMPLETION
 "Plug 'Valloric/YouCompleteMe'
@@ -116,7 +116,7 @@ set mouse=a
 
 set completeopt-=preview
 
-set undodir=~/.vim/undodir
+set undodir=~/.local/share/nvim/undo
 set undofile
 set undolevels=1000  " maximum number of changes that can be undone
 set undoreload=10000  " maximum number lines to save for undo on a buffer reload
@@ -166,7 +166,7 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:nerdtree_tabs_open_on_console_startup = 1
+let g:nerdtree_tabs_open_on_console_startup = 0
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound

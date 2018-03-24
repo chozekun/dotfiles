@@ -45,7 +45,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/ctrlp.vim'
 Plug 'Shougo/unite.vim'
 Plug 'ujihisa/unite-colorscheme'
-Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
 Plug 'dyng/ctrlsf.vim'
 
 " INTERFACE
@@ -66,6 +66,9 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bronson/vim-trailing-whitespace'
 "Plug 'myusuf3/numbers.vim'
 "Plug 'Yggdroot/indentLine'
+Plug 'AdrianSchneider/vim-tdd'
+Plug 'tpope/vim-obsession'
+Plug 'critiqjo/lldb.nvim'
 
 call plug#end()
 
@@ -75,7 +78,7 @@ filetype plugin indent on
 let mapleader = ","
 set tags+=tags;
 
-set fileencodings=utf-8
+set fileencodings=utf-8,euc-kr
 set fileencoding=utf-8
 set termencoding=utf-8
 
@@ -83,10 +86,10 @@ set autoindent
 set cindent
 set smartindent
 
-set shiftwidth=4
 set tabstop=4
 set expandtab
-set smarttab
+set shiftwidth=4
+set softtabstop=4
 
 set hlsearch
 set incsearch
@@ -116,7 +119,7 @@ set mouse=a
 
 set completeopt-=preview
 
-set undodir=~/.local/share/nvim/undo
+set undodir=~/.local/share/nvim/undodir
 set undofile
 set undolevels=1000  " maximum number of changes that can be undone
 set undoreload=10000  " maximum number lines to save for undo on a buffer reload
@@ -185,3 +188,10 @@ let g:molokai_original = 1
 set background=dark
 colorscheme molokai
 
+autocmd FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+:set guicursor=
